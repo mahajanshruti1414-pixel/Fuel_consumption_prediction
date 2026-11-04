@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuel Consumption Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .box {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        .result {
+            color: green;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Car Fuel Consumption Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <input type="number"
+               step="any"
+               name="engine"
+               placeholder="Engine Size"
+               required>
+
+        <input type="number"
+               name="cylinders"
+               placeholder="Number of Cylinders"
+               required>
+
+        <input type="number"
+               step="any"
+               name="horsepower"
+               placeholder="Horsepower"
+               required>
+
+        <input type="number"
+               step="any"
+               name="weight"
+               placeholder="Car Weight"
+               required>
+
+        <button type="submit">Predict Fuel Consumption</button>
+
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <h2>Predicted Fuel Consumption:</h2>
+            <h2>{{ prediction }}</h2>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
